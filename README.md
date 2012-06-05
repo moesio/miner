@@ -1,2 +1,4 @@
-miner
+Miner
 =====
+
+O projeto Miner define-se por ser um aplicativo desenhado inicialmente para a plataforma Android que se propõe a ser uma mescla de jogo e rede social. Usando um fornecedor de mapas, prioritariamente o Google Maps, um usuário pré-cadastrado tem sua localização geográfica atualizada periodicamente com o sistema de GPS do dispositivo. Enquanto ele se desloca, a aplicação verifica a proximidade de outros usuários a ele vinculados. Ao encontrar, é informado o posicionamento dos seus parceiros num raio definido a partir da posição atual e esse poderá capturar seus adversários com uma ação de clique. Essa ação gera uma pontuação baseada em critérios. A pontuação é acumulada pelos últimos sete dias e descartada após esse período. Tal pontuação tem o objetivo de incentivar a disputa por uma liderança, causando interesse no usuário em permanecer usando o aplicativo e continuar capturando outros usuários.
