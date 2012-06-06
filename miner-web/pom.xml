@@ -6,6 +6,16 @@
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Miner Web</name>
+
+	<repositories>
+		<repository>
+			<id>local-repo</id>
+			<url>file://${basedir}/local-repo</url>
+		</repository>
+		
+	</repositories>
+
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -14,34 +24,34 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+    	<groupId>com.seimos</groupId>
+    	<artifactId>commons</artifactId>
+    	<version>1.3</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework.security</groupId>
+    	<artifactId>spring-security-taglibs</artifactId>
+    	<version>3.1.0.RELEASE</version>
+    </dependency>
+    <dependency>
     	<groupId>org.hibernate.javax.persistence</groupId>
     	<artifactId>hibernate-jpa-2.0-api</artifactId>
     	<version>1.0.1.Final</version>
     </dependency>
     <dependency>
-    	<groupId>c3p0</groupId>
-    	<artifactId>c3p0</artifactId>
-    	<version>0.9.1.2</version>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-orm</artifactId>
+    	<version>3.1.1.RELEASE</version>
     </dependency>
     <dependency>
-    	<groupId>org.mongodb</groupId>
-    	<artifactId>mongo-java-driver</artifactId>
-    	<version>2.7.2</version>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-core</artifactId>
+    	<version>3.6.10.Final</version>
     </dependency>
     <dependency>
-    	<groupId>org.springframework.security</groupId>
-    	<artifactId>spring-security-web</artifactId>
-    	<version>3.1.0.RELEASE</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.codehaus.jackson</groupId>
-    	<artifactId>jackson-mapper-asl</artifactId>
-    	<version>1.9.6</version>
-    </dependency>
-    <dependency>
-    	<groupId>seimos</groupId>
-    	<artifactId>seimos</artifactId>
-    	<version>1.3.1</version>
+    	<groupId>log4j</groupId>
+    	<artifactId>apache-log4j-extras</artifactId>
+    	<version>1.1</version>
     </dependency>
   </dependencies>
   <build>
