@@ -3,10 +3,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
-    <com.google.android.maps.MapView android:id="@+id/map"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:apiKey="0B0MymFrglRWyoBRh_e0qwsDEc72Y_oAbFpCuXQ" />
-
+		
+		<com.google.android.maps.MapView
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+	    	android:id="@+id/mapa"
+	    	android:enabled="true"
+			android:clickable="true"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:apiKey="0bH0D_v0j4R0ixcG3t1So85YDpG72PHfSFhqI8g">
+        </com.google.android.maps.MapView>
+        
 </LinearLayout>
