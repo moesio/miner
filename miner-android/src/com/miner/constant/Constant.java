@@ -7,7 +7,7 @@ package com.miner.constant;
  */
 public class Constant {
 	
-	public static final int DELAY_INCREASE = 30;
+	public static final int DELAY_INCREASE = 20;
 	public static final int RAIO = 300;
 	public static final int MY_LOCATION = 1;
 	public static final int MINER = 2;

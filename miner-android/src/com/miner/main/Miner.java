@@ -13,12 +13,14 @@ public class Miner {
 	private String categoria;
 	private String message;
 	private GeoPoint geoPoint;
+	private boolean visible;
 	
-	public Miner(String name, String categoria, String message, GeoPoint geoPoint) {
+	public Miner(String name, String categoria, String message, GeoPoint geoPoint, boolean visible) {
 		this.name = name;
 		this.categoria = categoria;
 		this.message = message;
 		this.geoPoint = geoPoint;
+		this.visible = visible;
 	}
 
 	public String getName() {
@@ -52,6 +54,13 @@ public class Miner {
 	public void setGeoPoint(GeoPoint geoPoint) {
 		this.geoPoint = geoPoint;
 	}
-	
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
 	
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.OverlayItem;
@@ -39,6 +40,10 @@ public class LocationOverlay extends ItemizedOverlay<OverlayItem> {
 		populate();
 	}
 	
+	public List<Miner> getItems(){
+		return mItems;
+	}
+	
 	public void removeItem(int position){
 		mItems.remove(position);
 		setLastFocusedIndex(-1);
@@ -55,7 +60,7 @@ public class LocationOverlay extends ItemizedOverlay<OverlayItem> {
 		OverlayItem item = new OverlayItem(mItems.get(i).getGeoPoint(),null,null);
 		item.setMarker(marker);
 		return item;
- 	}
+	}
  
 	@Override
 	public int size() {
@@ -64,6 +69,7 @@ public class LocationOverlay extends ItemizedOverlay<OverlayItem> {
  
 	@Override
 	public boolean onTap(int i) {
+		Log.i("Miner", "Namr " + mItems.get(i).getName() + " position " + i);
 		message.obj = mItems.get(i);
 		message.arg1 = i;
 		handler.dispatchMessage(message);

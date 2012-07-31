@@ -1,19 +1,17 @@
 package com.miner.main;
 
 import android.graphics.Color;
-import android.graphics.Paint.Style;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-
+import com.crittercism.app.Crittercism;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.miner.constant.Constant;
 import com.miner.location.Gps;
 import com.miner.location.ImageOverlay;
 import com.miner.location.LocationOverlay;
-import com.miner.location.PointOverlay;
 import com.miner.location.Radar;
 import com.miner.manager.Manager;
 import com.miner.map.Map;
@@ -32,34 +30,55 @@ public class Main extends MapActivity{
 	private Gps gps;
 	private Radar radar;
 	private Location myLocation;
-	private PointOverlay fence;
 	private ImageOverlay myLocationImage;
 	private LocationOverlay locationOverlay;
 	private Manager comServer;
+	private Handler handlerInternal;
+	private float degrees;
     
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        Crittercism.init(getApplicationContext(), "500f244fc8f974267a000001");
+        
+        degrees = 360;
+        
         comServer = new Manager();
+        handlerInternal = new Handler();
         gps = new Gps(Main.this, handler);
         map = new Map(findViewById(R.id.mapa));
         myLocationImage = new ImageOverlay(null, R.drawable.location);
-        radar = new Radar(null, Color.BLACK, Color.TRANSPARENT, Constant.RAIO);
-        fence = new PointOverlay(null, Color.BLACK, Constant.RAIO, Style.STROKE);
+        radar = new Radar(null, Color.BLACK, Color.TRANSPARENT, Constant.RAIO, 0);
         locationOverlay = new LocationOverlay(getResources().getDrawable(R.drawable.marker2), handler);
        
         map.configZoom(true);
         map.addOverlay(radar);
-        map.addOverlay(fence);
         map.addOverlay(myLocationImage);
         map.addOverlay(locationOverlay);
+        
         locationOverlay.setItems(comServer.getMiners(myLocation));
-        gps.startCaptureLocation();
+        //gps.startCaptureLocation();
         
         recoversLastLocation();
+        handlerInternal.postDelayed(timer, Constant.DELAY_INCREASE);
     }
+	
+	private Runnable timer = new Runnable() {
+		public void run() {
+			if(degrees == 0){
+				degrees = 360;
+			} else{
+				degrees--;
+			}
+			
+			radar.setDegrees(degrees);
+			map.updateMap();
+			
+			handlerInternal.postDelayed(timer, Constant.DELAY_INCREASE);
+		}
+	};
 	
 	private Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
@@ -74,7 +93,6 @@ public class Main extends MapActivity{
                 		SharedPreferencesUtil.write(Main.this, Constant.MY_LOCATION_LONGITUTE, (float)myLocation.getLongitude());
                 		
                 		radar.setGeoPoint(geoPoint);
-                		fence.setGeoPoint(geoPoint);
                 		myLocationImage.setGeoPoint(geoPoint);
                 		
                 		map.updateMap();
@@ -107,6 +125,7 @@ public class Main extends MapActivity{
 		map.getMapa().getController().setZoom(SharedPreferencesUtil.readInt(Main.this, Constant.ZOOM_LEVEL, 5));
 		map.centralizaMapa(geoPoint);
 		
+		radar.setGeoPoint(geoPoint);
 		myLocationImage.setGeoPoint(geoPoint);
 	}
 	
