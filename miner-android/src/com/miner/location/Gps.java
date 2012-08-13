@@ -20,7 +20,7 @@ public class Gps {
 	}
 	
 	public void startCaptureLocation(){
-		mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, mlocListener);
+		mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, mlocListener);
 	}
 	
 	public void stopCaptureLocation(){

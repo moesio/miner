@@ -19,7 +19,7 @@
         <uses-library android:name="com.google.android.maps" />
         
         <activity
-            android:name=".Main"
+            android:name="com.miner.activitys.MapaActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -44,25 +44,25 @@ public class CustomMap extends MapActivity {
 		CustomOverlayItem overlayItem = new CustomOverlayItem(new GeoPoint((int)(51.5174723*1E6),(int)(-0.0899537*1E6)), 
 															  "Marcus Vinícius - Prata", 
 															  "Estou muito confiante =)", 
-															  getResources().getDrawable(R.drawable.icon_user));
+															  getResources().getDrawable(R.drawable.android));
 		itemizedOverlay.addOverlay(overlayItem);
 		
 		CustomOverlayItem overlayItem2 = new CustomOverlayItem(new GeoPoint((int)(51.515259*1E6),(int)(-0.086623*1E6)), 
 															   "Moésio Medeiros - Prata", 
 															   "Pegando todos...", 
-															   getResources().getDrawable(R.drawable.icon_user));		
+															   getResources().getDrawable(R.drawable.android));		
 		itemizedOverlay.addOverlay(overlayItem2);
 		
 		CustomOverlayItem overlayItem3 = new CustomOverlayItem(new GeoPoint((int)(51.513329*1E6),(int)(-0.08896*1E6)), 
 															   "Cásio - Ouro", 
 														       "Cheguei pra ficar =P", 
-														       getResources().getDrawable(R.drawable.icon_user));
+														       getResources().getDrawable(R.drawable.android));
 		itemizedOverlay.addOverlay(overlayItem3);
 		
 		CustomOverlayItem overlayItem4 = new CustomOverlayItem(new GeoPoint((int)(51.51738*1E6),(int)(-0.08186*1E6)), 
 															   "Leonardo Pinheiro - Bronze", 
 															   "Sou o MELHOR", 
-															   getResources().getDrawable(R.drawable.icon_user));		
+															   getResources().getDrawable(R.drawable.android));		
 		itemizedOverlay.addOverlay(overlayItem4);
 		
 		mapView.getOverlays().add(itemizedOverlay);
